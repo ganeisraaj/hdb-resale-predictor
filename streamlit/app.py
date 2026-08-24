@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("hdb_resale.csv")
+    df = pd.read_csv("streamlit/hdb_resale.csv")
     df["year"] = df["month"].str[:4].astype(int)
     df["storey_mid"] = df["storey_range"].str.extract(r'(\d+)\s+TO\s+(\d+)').astype(float).mean(axis=1)
     def parse_lease(s):
